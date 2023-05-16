@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
+import { FcHome } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const auth = getAuth();
@@ -26,21 +28,21 @@ export default function Profile() {
   }
   async function onSubmit() {
     try {
-      if(auth.currentUser.displayName !== name){
+      if (auth.currentUser.displayName !== name) {
         //update the displayName in firebase auth
         await updateProfile(auth.currentUser, {
           displayName: name,
         });
 
         //update name in firestore
-        const docRef = doc(db, "users", auth.currentUser.uid)
+        const docRef = doc(db, "users", auth.currentUser.uid);
         await updateDoc(docRef, {
           name,
-        })
+        });
       }
-      toast.success("Profile details updated!")
+      toast.success("Profile details updated!");
     } catch (error) {
-      toast.error("Could not update the profile details!")
+      toast.error("Could not update the profile details!");
     }
   }
   return (
@@ -89,6 +91,12 @@ export default function Profile() {
               </p>
             </div>
           </form>
+          <button type="submit" className="w-full bg-blue-600 text-white uppercase px-7 py-3 text-sm font-medium rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800">
+            <Link to="/create-listing" className="flex justify-center items-center ">
+              <FcHome className="mr-2 text-3xl bg-red-200 rounded-full p-1 border-2 "/>
+              Sell or Rent Your Home
+            </Link>
+          </button>
         </div>
       </section>
     </>
