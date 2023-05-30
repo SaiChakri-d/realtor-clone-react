@@ -151,7 +151,7 @@ export default function Listing() {
             <Contact userRef={listing.userRef} listing={listing} />
           )}
         </div>
-        {/* <div className="bg-blue-300 w-full h-[200px] lg-[h-400px] z-10 overflow-hidden"></div> */}
+        <div className="bg-blue-300 w-full h-[200px] lg-[h-400px] z-10 overflow-hidden"></div>
       </div>
     </main>
   );
