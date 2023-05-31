@@ -105,7 +105,13 @@ export default function Category() {
           )}
         </>
       ) : (
-        <p>There are no {params.categoryName === 'rent' ? "places for rent" : "places for sale"}!</p>
+        <p>
+          There are no{" "}
+          {params.categoryName === "rent"
+            ? "places for rent"
+            : "places for sale"}
+          !
+        </p>
       )}
     </div>
   );

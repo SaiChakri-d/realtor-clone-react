@@ -67,7 +67,7 @@ export default function EditListing() {
       toast.error("You cannot edit this listing!");
       navigate("/");
     }
-  },[auth.currentUser.uid, listing, navigate]);
+  }, [auth.currentUser.uid, listing, navigate]);
 
   useEffect(() => {
     setLoading(true);
@@ -85,8 +85,6 @@ export default function EditListing() {
     }
     fetchListing();
   }, [navigate, params.listingId]);
-
-
 
   function onChange(e) {
     let boolean = null;
@@ -220,7 +218,7 @@ export default function EditListing() {
     <main className="max-w-md  px-2 mx-auto ">
       <h1 className="text-3xl text-center mt-6 font-bold">Edit listing</h1>
       <form onSubmit={onSubmit}>
-        <p className="text-lg mt-6 font-semibold ">Sell/Rent</p>
+        <p className="text-lg mt-6 font-semibold ">Sell / Rent</p>
         <div className="flex">
           <button
             type="button"
@@ -430,7 +428,7 @@ export default function EditListing() {
               />
               {type === "rent" && (
                 <div>
-                  <p className="text-md w-full whitespace-nowrap">$ / Month</p>
+                  <p className="text-md w-full whitespace-nowrap">₹ / Month</p>
                 </div>
               )}
             </div>
@@ -454,7 +452,7 @@ export default function EditListing() {
                 {type === "rent" && (
                   <div>
                     <p className="text-md w-full whitespace-nowrap">
-                      $ / Month
+                      ₹ / Month
                     </p>
                   </div>
                 )}

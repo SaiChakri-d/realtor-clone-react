@@ -167,10 +167,10 @@ export default function CreateListing() {
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
     delete formDataCopy.latitude;
     delete formDataCopy.longitude;
-    const docRef = await addDoc(collection(db, "listings"), formDataCopy)
+    const docRef = await addDoc(collection(db, "listings"), formDataCopy);
     setLoading(false);
     toast.success("Listing created successfully!");
-    navigate(`/category/${formDataCopy.type}/${docRef.id}`)
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   }
 
   if (loading) {
@@ -180,7 +180,7 @@ export default function CreateListing() {
     <main className="max-w-md  px-2 mx-auto ">
       <h1 className="text-3xl text-center mt-6 font-bold">Create a listing</h1>
       <form onSubmit={onSubmit}>
-        <p className="text-lg mt-6 font-semibold ">Sell/Rent</p>
+        <p className="text-lg mt-6 font-semibold ">Sell / Rent</p>
         <div className="flex">
           <button
             type="button"
@@ -390,7 +390,7 @@ export default function CreateListing() {
               />
               {type === "rent" && (
                 <div>
-                  <p className="text-md w-full whitespace-nowrap">$ / Month</p>
+                  <p className="text-md w-full whitespace-nowrap">₹ / Month</p>
                 </div>
               )}
             </div>
@@ -414,7 +414,7 @@ export default function CreateListing() {
                 {type === "rent" && (
                   <div>
                     <p className="text-md w-full whitespace-nowrap">
-                      $ / Month
+                      ₹ / Month
                     </p>
                   </div>
                 )}
